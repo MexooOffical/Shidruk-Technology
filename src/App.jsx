@@ -1,6 +1,7 @@
 const logoUrl = 'https://shidruktechnology.com/wp-content/uploads/2026/03/logo.png';
 const linkedinUrl = 'https://in.linkedin.com/company/shidruktechnologypvtltd';
 const heroImageUrl = 'https://www.image2url.com/r2/default/images/1789896210622-d7331806-a024-475b-810e-8ebcd1091cbc.jpg';
+const aboutImageUrl = 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80';
 
 const navItems = [
   { label: 'HOME', href: '#home' },
@@ -24,12 +25,7 @@ function LinkedinIcon() { return <span className="linkedin-icon" aria-hidden="tr
 
 function HeroSection() {
   return (
-    <section
-      id="home"
-      className="hero-section"
-      style={{ backgroundImage: `url(${heroImageUrl})` }}
-      aria-label="Advanced laboratory infrastructure"
-    >
+    <section id="home" className="hero-section" style={{ backgroundImage: `url(${heroImageUrl})` }} aria-label="Advanced laboratory infrastructure">
       <div className="hero-overlay" />
       <div className="hero-content">
         <h1>
@@ -40,6 +36,28 @@ function HeroSection() {
           Designing, manufacturing, and delivering advanced laboratory infrastructure, integrating performance, aesthetics, and<br className="desktop-break" /> safety for pharmaceutical research and industrial environments.
         </p>
         <a className="hero-button" href="#contact">Get in Touch</a>
+      </div>
+    </section>
+  );
+}
+
+function AboutSection() {
+  return (
+    <section id="about" className="about-section">
+      <div className="about-copy">
+        <h2>About Us</h2>
+        <div className="divider" aria-hidden="true" />
+        <p>
+          Shidruk Technology Private Limited is a laboratory solutions company incorporated in 2021 and headquartered in Rable, Navi Mumbai, Maharashtra, India. The company specializes in the design, manufacturing, and installation of modular laboratory furniture, fume hoods, exhaust systems, and essential laboratory utilities, delivering reliable and well-engineered infrastructure solutions.
+        </p>
+        <p>
+          From concept design through manufacturing, installation, and ongoing support, we provide comprehensive laboratory solutions across pharmaceutical, research, chemical, healthcare, and educational sectors, enabling safe, efficient, and high-performance operations.
+        </p>
+        <a className="about-button" href="#capabilities">Explore Our Capabilities</a>
+      </div>
+
+      <div className="about-image-wrap">
+        <img src={aboutImageUrl} alt="Laboratory furniture installation" />
       </div>
     </section>
   );
@@ -77,6 +95,7 @@ export default function App() {
       </header>
 
       <HeroSection />
+      <AboutSection />
     </div>
   );
 }
