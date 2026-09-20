@@ -1,4 +1,5 @@
 const logoUrl = 'https://shidruktechnology.com/wp-content/uploads/2026/03/logo.png';
+const linkedinUrl = 'https://in.linkedin.com/company/shidruktechnologypvtltd';
 
 const navItems = [
   { label: 'HOME', href: '#home' },
@@ -50,7 +51,14 @@ export default function App() {
           </div>
           <div className="social-links" aria-label="Social media links">
             <a href="#facebook" aria-label="Facebook"><FacebookIcon /></a>
-            <a href="#linkedin" aria-label="LinkedIn"><LinkedinIcon /></a>
+            <a
+              href={linkedinUrl}
+              aria-label="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedinIcon />
+            </a>
           </div>
         </div>
       </div>
