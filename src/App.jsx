@@ -1,128 +1,83 @@
-import { Routes, Route, Link } from 'react-router-dom';
+const logoUrl = 'https://shidruktechnology.com/wp-content/uploads/2026/03/logo.png';
 
-const navItems = ['Home', 'About', 'Services', 'Solutions', 'Contact'];
+const navItems = [
+  { label: 'HOME', href: '#home' },
+  { label: 'ABOUT US', href: '#about' },
+  { label: 'PRODUCTS', href: '#products', hasDropdown: true },
+  { label: 'SOLUTIONS', href: '#solutions' },
+  { label: 'GALLERY', href: '#gallery' },
+  { label: 'CONTACT US', href: '#contact' },
+];
 
-function HomePage() {
+function PhoneIcon() {
   return (
-    <main className="page-shell">
-      <section className="hero">
-        <div className="hero-copy">
-          <p className="eyebrow">Future-ready digital partner</p>
-          <h1>Building smarter digital experiences for modern businesses.</h1>
-          <p className="lead">
-            Shidruk Technology Private Limited creates technology-driven business
-            systems, websites, and digital experiences that help organisations grow
-            with confidence.
-          </p>
-          <div className="cta-row">
-            <button className="primary-btn">Get Started</button>
-            <button className="secondary-btn">Learn More</button>
-          </div>
-        </div>
-
-        <div className="hero-card">
-          <div className="mini-stat">
-            <span>Projects</span>
-            <strong>150+</strong>
-          </div>
-          <div className="mini-stat">
-            <span>Years</span>
-            <strong>8+</strong>
-          </div>
-          <div className="mini-stat">
-            <span>Support</span>
-            <strong>24/7</strong>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-grid">
-        <div className="section-card">
-          <h3>Web Development</h3>
-          <p>Modern, scalable, and performance-focused web solutions.</p>
-        </div>
-        <div className="section-card">
-          <h3>Business Solutions</h3>
-          <p>Tools and systems designed to improve workflows and efficiency.</p>
-        </div>
-        <div className="section-card">
-          <h3>Digital Strategy</h3>
-          <p>Growth-focused planning for brands, products, and platform ideas.</p>
-        </div>
-      </section>
-    </main>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.6 2.8 9.2 2l2.1 5.1-2.2 1.8a15.8 15.8 0 0 0 6 6l1.8-2.2L22 14.8l-.8 2.6a3 3 0 0 1-3.3 2.1C10.2 18.4 5.6 13.8 4.5 6.1a3 3 0 0 1 2.1-3.3Z" />
+    </svg>
   );
 }
 
-function AboutPage() {
+function MailIcon() {
   return (
-    <main className="page-shell inner-page">
-      <h2>About Us</h2>
-      <p>
-        Shidruk Technology Private Limited is focused on helping companies operate
-        smarter through purposeful digital transformation.
-      </p>
-    </main>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M3 5.5h18v13H3v-13Zm1 1 8 6 8-6M4 17.5l5.3-4M20 17.5l-5.3-4" />
+    </svg>
   );
 }
 
-function ServicesPage() {
-  return (
-    <main className="page-shell inner-page">
-      <h2>Our Services</h2>
-      <p>Web development, product design, digital consulting, and business technology support.</p>
-    </main>
-  );
+function FacebookIcon() {
+  return <span className="facebook-icon" aria-hidden="true">f</span>;
 }
 
-function SolutionsPage() {
-  return (
-    <main className="page-shell inner-page">
-      <h2>Solutions</h2>
-      <p>Custom business apps, websites, operational systems, and digital growth services.</p>
-    </main>
-  );
-}
-
-function ContactPage() {
-  return (
-    <main className="page-shell inner-page">
-      <h2>Contact</h2>
-      <p>Let’s build something meaningful for your business.</p>
-    </main>
-  );
+function LinkedinIcon() {
+  return <span className="linkedin-icon" aria-hidden="true">in</span>;
 }
 
 export default function App() {
   return (
-    <div className="app-layout">
-      <header className="topbar">
-        <div className="brand-wrap">
-          <div className="brand-mark">S</div>
-          <div>
-            <div className="brand-name">Shidruk</div>
-            <div className="brand-subtitle">Technology Pvt. Ltd.</div>
+    <div className="site-shell">
+      <div className="utility-bar">
+        <div className="utility-inner">
+          <div className="contact-details">
+            <a href="tel:+919773450271" className="utility-item">
+              <PhoneIcon />
+              <span>+91 97734 50271</span>
+            </a>
+            <a href="mailto:sales@shidruktechnology.com" className="utility-item">
+              <MailIcon />
+              <span>sales@shidruktechnology.com</span>
+            </a>
+          </div>
+          <div className="social-links" aria-label="Social media links">
+            <a href="#facebook" aria-label="Facebook"><FacebookIcon /></a>
+            <a href="#linkedin" aria-label="LinkedIn"><LinkedinIcon /></a>
           </div>
         </div>
+      </div>
 
-        <nav className="main-nav" aria-label="Main navigation">
-          {navItems.map((item) => (
-            <Link key={item} to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}>
-              {item}
-            </Link>
-          ))}
-        </nav>
+      <header className="main-header">
+        <div className="header-inner">
+          <a className="brand-logo" href="#home" aria-label="Shidruk Technology home">
+            <img src={logoUrl} alt="Shidruk Technology Pvt Ltd" />
+          </a>
 
-        <button className="nav-cta">Book a Call</button>
+          <nav className="main-navigation" aria-label="Primary navigation">
+            {navItems.map((item) => (
+              <a key={item.label} href={item.href} className={`nav-link${item.hasDropdown ? ' has-dropdown' : ''}`}>
+                <span>{item.label}</span>
+                {item.hasDropdown && <span className="chevron" aria-hidden="true" />}
+              </a>
+            ))}
+          </nav>
+
+          <a className="quote-button" href="#quote">Get a Quote</a>
+          <button className="menu-toggle" type="button" aria-label="Open navigation menu">
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </header>
-
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/services" element={<ServicesPage />} />
-        <Route path="/solutions" element={<SolutionsPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
     </div>
   );
 }
