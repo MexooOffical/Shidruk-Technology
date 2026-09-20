@@ -1,7 +1,7 @@
 const logoUrl = 'https://shidruktechnology.com/wp-content/uploads/2026/03/logo.png';
 const linkedinUrl = 'https://in.linkedin.com/company/shidruktechnologypvtltd';
 const heroImageUrl = 'https://www.image2url.com/r2/default/images/1789896210622-d7331806-a024-475b-810e-8ebcd1091cbc.jpg';
-const aboutImageUrl = 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80';
+const aboutImageUrl = 'https://shidruktechnology.com/wp-content/uploads/2026/05/a5960141-ab7e-4267-a02b-fd2f1bac9aa7.jpg';
 
 const navItems = [
   { label: 'HOME', href: '#home' },
